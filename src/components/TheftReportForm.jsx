@@ -1,8 +1,13 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { v4 as uuid } from 'uuid';
 import '../styles/component-styles/theft-report-form.css';
 
 export default function TheftReportForm() {
+    const fileInputRef = useRef(null);
+    const [notification, setNotification] = useState({
+        message: "",
+        type: ""
+    });
     const [showPeoplePresent, setShowPeoplePresent] = useState(false);
     const [formData, setFormData] = useState({
         manager: "",
@@ -11,32 +16,57 @@ export default function TheftReportForm() {
         witnesses: "",
         peoplePresent: "",
         description: "",
-        files: null
+        files: []
     });
+
+    const hideNotificationAfterDelay = () => {
+        setTimeout(() => {
+            setNotification({ message: "", type: "" });
+        }, 5000);
+    }
 
     const handleWitnessChange = (event) => {
         const value = event.target.value;
-
         setFormData({ ...formData, witnesses: value });
-
-        if (value === 'Yes' || value === "Can't tell") {
-            setShowPeoplePresent(true);
-        } else {
-            setShowPeoplePresent(false);
-        }
+        setShowPeoplePresent(value === 'Yes' || value === "Can't tell");
     };
 
     const handleChange = (event) => {
-        setFormData((currData) => {
-            return {
-                ...currData,
-                [event.target.name]: event.target.value,
-            };
-        });
+        setFormData((currData) => ({
+            ...currData,
+            [event.target.name]: event.target.value,
+        }));
     };
+
+    const handleFileChange = (event) => {
+        const filesArray = Array.from(event.target.files);
+        setFormData({ ...formData, files: filesArray });
+    };
+
+    const handleCancel = () => {
+        setNotification({ message: "Form successfully reset!", type: "success" })
+        hideNotificationAfterDelay();
+
+        setFormData({
+            manager: "",
+            dateTime: "",
+            stolenItems: "",
+            witnesses: "",
+            peoplePresent: "",
+            description: "",
+            files: []
+        });
+        if (fileInputRef.current) {
+            fileInputRef.current.value = null;
+        }
+    }
 
     const onSubmit = (event) => {
         event.preventDefault();
+
+        setNotification({ message: "Form was submitted! Good job", type: "success" });
+        hideNotificationAfterDelay();
+
         console.log("Form was submitted! Good job", formData);
         setFormData({
             manager: "",
@@ -45,108 +75,131 @@ export default function TheftReportForm() {
             witnesses: "",
             peoplePresent: "",
             description: "",
-            files: null
+            files: []
         });
+        if (fileInputRef.current) {
+            fileInputRef.current.value = null;
+        }
     };
 
     return (
-        <>
-            <form className="form" onSubmit={onSubmit}>
-                <label htmlFor="">Manager:</label>
+        <form className="form" onSubmit={onSubmit}>
+            {notification.message && (
+                <p className={`notification ${notification.type}`}>
+                    {notification.message}
+                </p>
+            )}
+
+            <label htmlFor="manager">Manager:</label>
+            <input
+                id="manager"
+                type="text"
+                placeholder="Manager Name"
+                name="manager"
+                value={formData.manager}
+                onChange={handleChange}
+                required
+            />
+
+            <label htmlFor="dateTime">Date and time of incident:</label>
+            <input
+                id="dateTime"
+                type="datetime-local"
+                name="dateTime"
+                value={formData.dateTime}
+                onChange={handleChange}
+                required
+            />
+
+            <label htmlFor="stolenItems">Stolen Items:</label>
+            <input
+                id="stolenItems"
+                placeholder="What items were stolen?"
+                name="stolenItems"
+                value={formData.stolenItems}
+                onChange={handleChange}
+                required
+            />
+
+            <label>Were there any people present/any possible witnesses?</label>
+            <div>
                 <input
-                    type="text"
-                    placeholder="Manager Name"
-                    name="manager"
-                    value={formData.manager}
-                    onChange={handleChange}
-                    required />
-
-                <label htmlFor="">Date and time of incident:</label>
-                <input
-                    type="datetime-local"
-                    name="dateTime"
-                    value={formData.dateTime}
-                    onChange={handleChange}
-                    required />
-
-                <label htmlFor="">Stolen Items:</label>
-                <input
-                    placeholder="What items were stolen?"
-                    name='stolenItems'
-                    value={formData.stolenItems}
-                    onChange={handleChange}
-                    required />
-
-                <label htmlFor="">Were there any people present/any possible witnesses?</label>
-                <div>
-                    <input
-                        type="radio"
-                        id="yes"
-                        name="witnesses"
-                        value="Yes"
-                        onChange={handleWitnessChange}
-                        required
-                    />
-                    <label htmlFor="yes">Yes</label>
-
-                    <input
-                        type="radio"
-                        id="no"
-                        name="witnesses"
-                        value="No"
-                        onChange={handleWitnessChange}
-                    />
-                    <label htmlFor="no">No</label>
-
-                    <input
-                        type="radio"
-                        id="cant-tell"
-                        name="witnesses"
-                        value="Can't tell"
-                        onChange={handleWitnessChange}
-                    />
-                    <label htmlFor="cant-tell">Cannot tell</label>
-                </div>
-
-                {showPeoplePresent && (
-                    <>
-                        <label htmlFor="">People Present:</label>
-                        <input
-                            name="peoplePresent"
-                            value={formData.peoplePresent}
-                            onChange={handleChange}
-                            placeholder="Name and contact info if available" />
-                    </>
-                )}
-
-                <label htmlFor="">Description:</label>
-                <textarea
-                    cols="30"
-                    rows="10"
-                    placeholder="Please describe in detail the events that occurred."
-                    name="description"
-                    value={formData.description}
-                    onChange={handleChange}
+                    id="yes"
+                    type="radio"
+                    name="witnesses"
+                    value="Yes"
+                    onChange={handleWitnessChange}
+                    checked={formData.witnesses === "Yes"}
                     required
-                ></textarea>
+                />
+                <label htmlFor="yes">Yes</label>
 
-                <label>Upload Images/Videos:</label>
                 <input
-                    type="file"
-                    multiple
-                    accept="image/jpeg, video/mp4"
-                    onChange={handleChange}
-                    required />
+                    id="no"
+                    type="radio"
+                    name="witnesses"
+                    value="No"
+                    onChange={handleWitnessChange}
+                    checked={formData.witnesses === "No"}
+                />
+                <label htmlFor="no">No</label>
 
-                <div className="bottom-buttons">
-                    <button type="reset" style={{ backgroundColor: 'white' }}>
-                        Cancel
-                    </button>
-                    <button type="submit" style={{ backgroundColor: '#E73137', color: 'white' }}>
-                        Submit
-                    </button>
-                </div>
-            </form>
-        </>
+                <input
+                    id="cant-tell"
+                    type="radio"
+                    name="witnesses"
+                    value="Can't tell"
+                    onChange={handleWitnessChange}
+                    checked={formData.witnesses === "Can't tell"}
+                />
+                <label htmlFor="cant-tell">Cannot tell</label>
+
+            </div>
+
+            {showPeoplePresent && (
+                <>
+                    <label htmlFor="peoplePresent">People Present:</label>
+                    <input
+                        id="peoplePresent"
+                        name="peoplePresent"
+                        value={formData.peoplePresent}
+                        onChange={handleChange}
+                        placeholder="Name and contact info if available"
+                    />
+                </>
+            )}
+
+            <label htmlFor="description">Description:</label>
+            <textarea
+                id="description"
+                cols="30"
+                rows="10"
+                placeholder="Please describe in detail the events that occurred."
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                required
+            ></textarea>
+
+            <label htmlFor="files">Upload Images/Videos:</label>
+            <input
+                id="files"
+                type="file"
+                multiple
+                accept="image/jpeg, video/mp4"
+                ref={fileInputRef}
+                onChange={handleFileChange}
+                required
+            />
+
+            <div className="form-bottom">
+                <button type="reset" onClick={handleCancel} style={{ backgroundColor: 'white' }}>
+                    Cancel
+                </button>
+                <button type="submit" style={{ backgroundColor: '#E73137', color: 'white' }}>
+                    Submit
+                </button>
+            </div>
+        </form>
     );
 }
