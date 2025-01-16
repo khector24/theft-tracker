@@ -1,15 +1,10 @@
-/* * #root {
-  margin: 0;
-} */
-
 * {
   /* background-color: #E73137; */
   /* color: #000; */
-  margin: none;
-}
 
-h1 {
-  color: #E73137;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* #root {

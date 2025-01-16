@@ -1,3 +1,41 @@
 .header {
     background-color: #E73137;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header .title {}
+
+.header .title h3 {
+    color: #FFF;
+}
+
+.header .links {
+    display: flex;
+    gap: 5px;
+}
+
+.header .links a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header .links a:hover {
+    color: rgb(92, 92, 92);
+    /* text-decoration: underline; */
+    border-bottom: 2px solid rgb(92, 92, 92);
+
+}
+
+/* Add styles for active links */
+.header .links .active-link {
+    /* text-decoration: underline; */
+    /* font-weight: bold; */
+    /* Optional: to make it more prominent */
+    color: #000;
+    /* Ensure it stays black */
+    border-bottom: 2px solid #fff;
 }
