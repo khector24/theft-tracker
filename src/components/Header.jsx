@@ -10,16 +10,17 @@ export default function Header() {
             <div className='links'>
                 <NavLink
                     to='/'
-                    className={({ isActive }) => (isActive && 'active-link')}
+                    className={({ isActive }) => (isActive ? 'active-link' : undefined)}
                 >
                     Home
                 </NavLink>
                 <NavLink
                     to='/reportsPage'
-                    className={({ isActive }) => (isActive && 'active-link')}
+                    className={({ isActive }) => (isActive ? 'active-link' : undefined)}
                 >
                     Reports
                 </NavLink>
+
             </div>
         </div>
     );

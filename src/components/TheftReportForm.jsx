@@ -124,7 +124,7 @@ export default function TheftReportForm() {
             <label>Are there any stolen items?</label>
             <div>
                 <input
-                    id="yes"
+                    id="stolen-yes"
                     type="radio"
                     name="stolenItems"
                     value="Yes"
@@ -132,33 +132,33 @@ export default function TheftReportForm() {
                     checked={formData.stolenItems === "Yes"}
                     required
                 />
-                <label htmlFor="yes">Yes</label>
+                <label htmlFor="stolen-yes">Yes</label>
 
                 <input
-                    id="no"
+                    id="stolen-no"
                     type="radio"
                     name="stolenItems"
                     value="No"
                     onChange={handleStolenItems}
                     checked={formData.stolenItems === "No"}
                 />
-                <label htmlFor="no">No</label>
+                <label htmlFor="stolen-no">No</label>
 
                 <input
-                    id="cant-tell"
+                    id="stolen-cant-tell"
                     type="radio"
                     name="stolenItems"
                     value="Can't tell"
                     onChange={handleStolenItems}
                     checked={formData.stolenItems === "Can't tell"}
                 />
-                <label htmlFor="cant-tell">Cannot tell</label>
+                <label htmlFor="stolen-cant-tell">Cannot tell</label>
             </div>
 
             {
                 showStolenItems && (
-                    <>
-                        <label htmlFor="stolenItems">Stolen Items:</label>
+                    <div className='stolen-items'>
+                        <label htmlFor="items">Stolen Items:</label>
                         <input
                             id="items"
                             placeholder="What items were stolen?"
@@ -167,13 +167,13 @@ export default function TheftReportForm() {
                             onChange={handleChange}
                             required
                         />
-                    </>
+                    </div>
                 )}
 
             <label>Were there any people present/any possible witnesses?</label>
             <div>
                 <input
-                    id="yes"
+                    id="witness-yes"
                     type="radio"
                     name="witnesses"
                     value="Yes"
@@ -181,27 +181,27 @@ export default function TheftReportForm() {
                     checked={formData.witnesses === "Yes"}
                     required
                 />
-                <label htmlFor="yes">Yes</label>
+                <label htmlFor="witness-yes">Yes</label>
 
                 <input
-                    id="no"
+                    id="witness-no"
                     type="radio"
                     name="witnesses"
                     value="No"
                     onChange={handleWitnessChange}
                     checked={formData.witnesses === "No"}
                 />
-                <label htmlFor="no">No</label>
+                <label htmlFor="witness-no">No</label>
 
                 <input
-                    id="cant-tell"
+                    id="witness-cant-tell"
                     type="radio"
                     name="witnesses"
                     value="Can't tell"
                     onChange={handleWitnessChange}
                     checked={formData.witnesses === "Can't tell"}
                 />
-                <label htmlFor="cant-tell">Cannot tell</label>
+                <label htmlFor="witness-cant-tell">Cannot tell</label>
 
             </div>
 
