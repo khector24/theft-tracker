@@ -1,6 +1,11 @@
+/* * #root {
+  margin: 0;
+} */
+
 * {
   /* background-color: #E73137; */
-  color: #000;
+  /* color: #000; */
+  margin: none;
 }
 
 h1 {
