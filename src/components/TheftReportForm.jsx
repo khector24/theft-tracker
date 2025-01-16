@@ -9,9 +9,11 @@ export default function TheftReportForm() {
         type: ""
     });
     const [showPeoplePresent, setShowPeoplePresent] = useState(false);
+    const [showStolenItems, setShowStolenItems] = useState(false);
     const [formData, setFormData] = useState({
         manager: "",
         dateTime: "",
+        items: "",
         stolenItems: "",
         witnesses: "",
         peoplePresent: "",
@@ -29,6 +31,12 @@ export default function TheftReportForm() {
         const value = event.target.value;
         setFormData({ ...formData, witnesses: value });
         setShowPeoplePresent(value === 'Yes' || value === "Can't tell");
+    };
+
+    const handleStolenItems = (event) => {
+        const value = event.target.value;
+        setFormData({ ...formData, stolenItems: value });
+        setShowStolenItems(value === "Yes" || value === "Can't tell")
     };
 
     const handleChange = (event) => {
@@ -50,6 +58,7 @@ export default function TheftReportForm() {
         setFormData({
             manager: "",
             dateTime: "",
+            items: "",
             stolenItems: "",
             witnesses: "",
             peoplePresent: "",
@@ -71,6 +80,7 @@ export default function TheftReportForm() {
         setFormData({
             manager: "",
             dateTime: "",
+            items: "",
             stolenItems: "",
             witnesses: "",
             peoplePresent: "",
@@ -111,15 +121,54 @@ export default function TheftReportForm() {
                 required
             />
 
-            <label htmlFor="stolenItems">Stolen Items:</label>
-            <input
-                id="stolenItems"
-                placeholder="What items were stolen?"
-                name="stolenItems"
-                value={formData.stolenItems}
-                onChange={handleChange}
-                required
-            />
+            <label>Are there any stolen items?</label>
+            <div>
+                <input
+                    id="yes"
+                    type="radio"
+                    name="stolenItems"
+                    value="Yes"
+                    onChange={handleStolenItems}
+                    checked={formData.stolenItems === "Yes"}
+                    required
+                />
+                <label htmlFor="yes">Yes</label>
+
+                <input
+                    id="no"
+                    type="radio"
+                    name="stolenItems"
+                    value="No"
+                    onChange={handleStolenItems}
+                    checked={formData.stolenItems === "No"}
+                />
+                <label htmlFor="no">No</label>
+
+                <input
+                    id="cant-tell"
+                    type="radio"
+                    name="stolenItems"
+                    value="Can't tell"
+                    onChange={handleStolenItems}
+                    checked={formData.stolenItems === "Can't tell"}
+                />
+                <label htmlFor="cant-tell">Cannot tell</label>
+            </div>
+
+            {
+                showStolenItems && (
+                    <>
+                        <label htmlFor="stolenItems">Stolen Items:</label>
+                        <input
+                            id="items"
+                            placeholder="What items were stolen?"
+                            name="items"
+                            value={formData.items}
+                            onChange={handleChange}
+                            required
+                        />
+                    </>
+                )}
 
             <label>Were there any people present/any possible witnesses?</label>
             <div>
