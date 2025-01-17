@@ -94,6 +94,7 @@ export default function TheftReportForm() {
 
     return (
         <form className="form" onSubmit={onSubmit}>
+            <h2>New Report</h2>
             {notification.message && (
                 <p className={`notification ${notification.type}`}>
                     {notification.message}
