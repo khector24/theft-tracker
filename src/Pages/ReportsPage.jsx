@@ -12,7 +12,7 @@ export default function ReportsPage() {
             dateTime: "2024-01-08T14:30",
             stolenItems: "Laptop, Phone",
             witnesses: "Anna Grey",
-            description: "A black Dell laptop and a Samsung Galaxy phone were stolen from an open office desk on the second floor. The theft is believed to have occurred during the lunch break when the area was unattended. Security footage from nearby cameras is being reviewed to identify potential suspects.",
+            description: "A black Dell laptop and a Samsung Galaxy phone were stolen from an open office desk on the second floor. The theft is believed to have occurred during the lunch break when the area was unattended. Security footage from nearby cameras is being reviewed to identify potential suspects.  black Dell laptop and a Samsung Galaxy phone were stolen from an open office desk on the second floor. The theft is believed to have occurred during the lunch break when the area was unattended. Security footage from nearby cameras is being reviewed to identify potential suspects.",
         },
         {
             id: "2",

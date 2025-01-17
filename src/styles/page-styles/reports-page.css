@@ -1,5 +1,4 @@
-.reports {
-    /* margin-top: 50px; */
+/* .reports {
     padding: 15px;
 }
 
@@ -9,4 +8,27 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+} */
+
+.reports {
+    padding: 30px;
+    background-color: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.reports h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #444;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.reports .reports-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
 }
