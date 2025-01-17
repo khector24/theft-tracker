@@ -157,18 +157,19 @@ export default function TheftReportForm() {
 
             {
                 showStolenItems && (
-                    <div className='stolen-items'>
+                    <div className='stolen-items-container'>
                         <label htmlFor="items">Stolen Items:</label>
-                        <input
+                        <textarea
                             id="items"
-                            placeholder="What items were stolen?"
+                            placeholder="What items were stolen? Description and Quantity"
                             name="items"
                             value={formData.items}
                             onChange={handleChange}
                             required
-                        />
+                        ></textarea>
                     </div>
-                )}
+                )
+            }
 
             <label>Were there any people present/any possible witnesses?</label>
             <div>
@@ -205,18 +206,20 @@ export default function TheftReportForm() {
 
             </div>
 
-            {showPeoplePresent && (
-                <>
-                    <label htmlFor="peoplePresent">People Present:</label>
-                    <input
-                        id="peoplePresent"
-                        name="peoplePresent"
-                        value={formData.peoplePresent}
-                        onChange={handleChange}
-                        placeholder="Name and contact info if available"
-                    />
-                </>
-            )}
+            {
+                showPeoplePresent && (
+                    <div className='witnesses-container'>
+                        <label htmlFor="peoplePresent">People Present:</label>
+                        <textarea
+                            id="peoplePresent"
+                            name="peoplePresent"
+                            value={formData.peoplePresent}
+                            onChange={handleChange}
+                            placeholder="Name and contact info if available"
+                        ></textarea>
+                    </div>
+                )
+            }
 
             <label htmlFor="description">Description:</label>
             <textarea
@@ -249,6 +252,6 @@ export default function TheftReportForm() {
                     Submit
                 </button>
             </div>
-        </form>
+        </form >
     );
 }

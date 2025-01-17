@@ -1,6 +1,6 @@
 .header {
     background-color: #E73137;
-    padding: 12px;
+    padding: 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -12,7 +12,7 @@
 
 .header .links {
     display: flex;
-    gap: 5px;
+    gap: 10px;
 }
 
 .header .links a {

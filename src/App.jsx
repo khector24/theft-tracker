@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './Pages/Home';
-import ReportsPage from './Pages/ReportsPages';
+import ReportsPage from './Pages/ReportsPage';
 import Layout from './Layout';
 
 function App() {
