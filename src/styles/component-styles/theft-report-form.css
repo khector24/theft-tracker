@@ -42,12 +42,9 @@
 
 .form textarea {
     width: 100%;
-    /* Adjusts to container width */
     min-height: 100px;
-    /* Minimum height */
     padding: 10px;
     resize: vertical;
-    /* Allow resizing only vertically */
 }
 
 .witnesses-container {
