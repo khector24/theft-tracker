@@ -1,0 +1,310 @@
+[
+    {
+        "id": "1094",
+        "manager": "Ethan Blackwell",
+        "dateTime": "2024-01-08T14:30",
+        "stolenItems": "Laptop, Phone",
+        "witnesses": "Anna Grey",
+        "description": "A black Dell laptop and a Samsung Galaxy phone were stolen from an open office desk on the second floor. The theft is believed to have occurred during the lunch break when the area was unattended. Security footage from nearby cameras is being reviewed to identify potential suspects.",
+        "files": [
+            {
+                "name": "photo1.jpg",
+                "type": "image/jpeg",
+                "data": "/9j/4AAQSkZ..."
+            },
+            {
+                "name": "document.pdf",
+                "type": "application/pdf",
+                "data": "JVBERi0xLj..."
+            }
+        ],
+        "location": "Warehouse A",
+        "priority": "High"
+    },
+    {
+        "id": "2975",
+        "manager": "Sophia Trenton",
+        "dateTime": "2024-01-07T10:00",
+        "stolenItems": "Wallet",
+        "witnesses": "Mark Stevens",
+        "description": "An employee's wallet containing cash, credit cards, and personal identification was taken from a secured locker in the break room. The locker appeared to have been forced open with a sharp object. The incident happened during the morning shift, and multiple employees were in the vicinity at the time.",
+        "files": [
+            {
+                "name": "photo1.jpg",
+                "type": "image/jpeg",
+                "data": "/9j/4AAQSkZ..."
+            },
+            {
+                "name": "document.pdf",
+                "type": "application/pdf",
+                "data": "JVBERi0xLj..."
+            }
+        ],
+        "location": "Warehouse A",
+        "priority": "High"
+    },
+    {
+        "id": "3964",
+        "manager": "Isaac Cromwell",
+        "dateTime": "2024-01-06T18:45",
+        "stolenItems": "Office Chair",
+        "witnesses": "Peter Connors",
+        "description": "A premium ergonomic office chair was reported missing from the manager's cabin. The chair is valued at approximately $800. It was last seen during a late evening meeting, and no unauthorized access to the office was recorded. The investigation is ongoing to determine how the item was removed.",
+        "files": [
+            {
+                "name": "photo1.jpg",
+                "type": "image/jpeg",
+                "data": "/9j/4AAQSkZ..."
+            },
+            {
+                "name": "document.pdf",
+                "type": "application/pdf",
+                "data": "JVBERi0xLj..."
+            }
+        ],
+        "location": "Warehouse A",
+        "priority": "High"
+    },
+    {
+        "id": "42345",
+        "manager": "Quincy Harlow",
+        "dateTime": "2024-01-05T09:15",
+        "stolenItems": "External Hard Drive",
+        "witnesses": "Emily Vargas",
+        "description": "A 2TB external hard drive containing sensitive project files was taken from the IT department. The hard drive was on a desk near the window, which was found slightly ajar. This raises concerns about external intrusion or an internal breach. Immediate measures are being taken to secure digital assets.",
+        "files": [
+            {
+                "name": "photo1.jpg",
+                "type": "image/jpeg",
+                "data": "/9j/4AAQSkZ..."
+            },
+            {
+                "name": "document.pdf",
+                "type": "application/pdf",
+                "data": "JVBERi0xLj..."
+            }
+        ],
+        "location": "Warehouse A",
+        "priority": "High"
+    },
+    {
+        "id": "5345",
+        "manager": "Dominic Porter",
+        "dateTime": "2024-01-04T12:30",
+        "stolenItems": "Company Tablet",
+        "witnesses": "Lisa Hall",
+        "description": "A company-issued tablet, used for inventory management, went missing from the warehouse. The device was last seen on a charging station near the entry point. The theft was discovered during a routine inventory check. Access logs for the warehouse are being analyzed to identify any irregularities.",
+        "files": [
+            {
+                "name": "photo1.jpg",
+                "type": "image/jpeg",
+                "data": "/9j/4AAQSkZ..."
+            },
+            {
+                "name": "document.pdf",
+                "type": "application/pdf",
+                "data": "JVBERi0xLj..."
+            }
+        ],
+        "location": "Warehouse A",
+        "priority": "High"
+    },
+    {
+        "id": "68553",
+        "manager": "Michael Ellison",
+        "dateTime": "2024-01-03T16:20",
+        "stolenItems": "Projector",
+        "witnesses": "James Lee",
+        "description": "A high-end projector was stolen from the conference room on the ground floor. The room was left unlocked after a meeting concluded earlier in the afternoon. Witnesses reported seeing an unfamiliar individual carrying a large bag near the area around the time of the theft.",
+        "files": [
+            {
+                "name": "photo1.jpg",
+                "type": "image/jpeg",
+                "data": "/9j/4AAQSkZ..."
+            },
+            {
+                "name": "document.pdf",
+                "type": "application/pdf",
+                "data": "JVBERi0xLj..."
+            }
+        ],
+        "location": "Warehouse A",
+        "priority": "High"
+    },
+    {
+        "id": "11357",
+        "manager": "Ethan Blackwell",
+        "dateTime": "2024-01-08T14:30",
+        "stolenItems": "Laptop, Phone",
+        "witnesses": "Anna Grey",
+        "description": "A black Dell laptop and a Samsung Galaxy phone were stolen from an open office desk on the second floor. The theft is believed to have occurred during the lunch break when the area was unattended. Security footage from nearby cameras is being reviewed to identify potential suspects.",
+        "files": [
+            {
+                "name": "photo1.jpg",
+                "type": "image/jpeg",
+                "data": "/9j/4AAQSkZ..."
+            },
+            {
+                "name": "document.pdf",
+                "type": "application/pdf",
+                "data": "JVBERi0xLj..."
+            }
+        ],
+        "location": "Warehouse A",
+        "priority": "High"
+    },
+    {
+        "id": "2222",
+        "manager": "Sophia Trenton",
+        "dateTime": "2024-01-07T10:00",
+        "stolenItems": "Wallet",
+        "witnesses": "Mark Stevens",
+        "description": "An employee's wallet containing cash, credit cards, and personal identification was taken from a secured locker in the break room. The locker appeared to have been forced open with a sharp object. The incident happened during the morning shift, and multiple employees were in the vicinity at the time.",
+        "files": [
+            {
+                "name": "photo1.jpg",
+                "type": "image/jpeg",
+                "data": "/9j/4AAQSkZ..."
+            },
+            {
+                "name": "document.pdf",
+                "type": "application/pdf",
+                "data": "JVBERi0xLj..."
+            }
+        ],
+        "location": "Warehouse A",
+        "priority": "High"
+    },
+    {
+        "id": "3666",
+        "manager": "Isaac Cromwell",
+        "dateTime": "2024-01-06T18:45",
+        "stolenItems": "Office Chair",
+        "witnesses": "Peter Connors",
+        "description": "A premium ergonomic office chair was reported missing from the manager's cabin. The chair is valued at approximately $800. It was last seen during a late evening meeting, and no unauthorized access to the office was recorded. The investigation is ongoing to determine how the item was removed.",
+        "files": [
+            {
+                "name": "photo1.jpg",
+                "type": "image/jpeg",
+                "data": "/9j/4AAQSkZ..."
+            },
+            {
+                "name": "document.pdf",
+                "type": "application/pdf",
+                "data": "JVBERi0xLj..."
+            }
+        ],
+        "location": "Warehouse A",
+        "priority": "High"
+    },
+    {
+        "id": "0004",
+        "manager": "Quincy Harlow",
+        "dateTime": "2024-01-05T09:15",
+        "stolenItems": "External Hard Drive",
+        "witnesses": "Emily Vargas",
+        "description": "A 2TB external hard drive containing sensitive project files was taken from the IT department. The hard drive was on a desk near the window, which was found slightly ajar. This raises concerns about external intrusion or an internal breach. Immediate measures are being taken to secure digital assets.",
+        "files": [
+            {
+                "name": "photo1.jpg",
+                "type": "image/jpeg",
+                "data": "/9j/4AAQSkZ..."
+            },
+            {
+                "name": "document.pdf",
+                "type": "application/pdf",
+                "data": "JVBERi0xLj..."
+            }
+        ],
+        "location": "Warehouse A",
+        "priority": "High"
+    },
+    {
+        "id": "511",
+        "manager": "Dominic Porter",
+        "dateTime": "2024-01-04T12:30",
+        "stolenItems": "Company Tablet",
+        "witnesses": "Lisa Hall",
+        "description": "A company-issued tablet, used for inventory management, went missing from the warehouse. The device was last seen on a charging station near the entry point. The theft was discovered during a routine inventory check. Access logs for the warehouse are being analyzed to identify any irregularities.",
+        "files": [
+            {
+                "name": "photo1.jpg",
+                "type": "image/jpeg",
+                "data": "/9j/4AAQSkZ..."
+            },
+            {
+                "name": "document.pdf",
+                "type": "application/pdf",
+                "data": "JVBERi0xLj..."
+            }
+        ],
+        "location": "Warehouse A",
+        "priority": "High"
+    },
+    {
+        "id": "69983",
+        "manager": "Michael Ellison",
+        "dateTime": "2024-01-03T16:20",
+        "stolenItems": "Projector",
+        "witnesses": "James Lee",
+        "description": "A high-end projector was stolen from the conference room on the ground floor. The room was left unlocked after a meeting concluded earlier in the afternoon. Witnesses reported seeing an unfamiliar individual carrying a large bag near the area around the time of the theft.",
+        "files": [
+            {
+                "name": "photo1.jpg",
+                "type": "image/jpeg",
+                "data": "/9j/4AAQSkZ..."
+            },
+            {
+                "name": "document.pdf",
+                "type": "application/pdf",
+                "data": "JVBERi0xLj..."
+            }
+        ],
+        "location": "Warehouse A",
+        "priority": "High"
+    },
+    {
+        "id": "7064534",
+        "manager": "Nina Westwood",
+        "dateTime": "2024-01-02T08:00",
+        "stolenItems": "Desktop Computer",
+        "witnesses": "Samuel Green",
+        "description": "A high-performance desktop computer was stolen from the IT department's storage room. The room was secured with a keypad lock, and there were no signs of forced entry. Employee access records are being cross-verified to find any discrepancies.",
+        "files": [
+            {
+                "name": "photo1.jpg",
+                "type": "image/jpeg",
+                "data": "/9j/4AAQSkZ..."
+            },
+            {
+                "name": "document.pdf",
+                "type": "application/pdf",
+                "data": "JVBERi0xLj..."
+            }
+        ],
+        "location": "Warehouse B",
+        "priority": "Medium"
+    },
+    {
+        "id": "8976",
+        "manager": "Evan Carter",
+        "dateTime": "2024-01-01T20:00",
+        "stolenItems": "Industrial Tools",
+        "witnesses": "None",
+        "description": "A set of industrial tools valued at $5,000 was stolen from the maintenance workshop. The tools were last seen on the racks at the end of the evening shift. The workshop was left unlocked overnight.",
+        "files": [
+            {
+                "name": "photo1.jpg",
+                "type": "image/jpeg",
+                "data": "/9j/4AAQSkZ..."
+            },
+            {
+                "name": "document.pdf",
+                "type": "application/pdf",
+                "data": "JVBERi0xLj..."
+            }
+        ],
+        "location": "Warehouse C",
+        "priority": "High"
+    }
+]

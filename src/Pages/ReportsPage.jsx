@@ -13,6 +13,20 @@ export default function ReportsPage() {
             stolenItems: "Laptop, Phone",
             witnesses: "Anna Grey",
             description: "A black Dell laptop and a Samsung Galaxy phone were stolen from an open office desk on the second floor. The theft is believed to have occurred during the lunch break when the area was unattended. Security footage from nearby cameras is being reviewed to identify potential suspects.  black Dell laptop and a Samsung Galaxy phone were stolen from an open office desk on the second floor. The theft is believed to have occurred during the lunch break when the area was unattended. Security footage from nearby cameras is being reviewed to identify potential suspects.",
+            files: [
+                {
+                    "name": "photo1.jpg",
+                    "type": "image/jpeg",
+                    "data": "/9j/4AAQSkZ..."
+                },
+                {
+                    "name": "document.pdf",
+                    "type": "application/pdf",
+                    "data": "JVBERi0xLj..."
+                }
+            ],
+            location: "Warehouse A",
+            priority: "High",
         },
         {
             id: "2",
@@ -21,6 +35,20 @@ export default function ReportsPage() {
             stolenItems: "Wallet",
             witnesses: "Mark Stevens",
             description: "An employee's wallet containing cash, credit cards, and personal identification was taken from a secured locker in the break room. The locker appeared to have been forced open with a sharp object. The incident happened during the morning shift, and multiple employees were in the vicinity at the time.",
+            files: [
+                {
+                    "name": "photo1.jpg",
+                    "type": "image/jpeg",
+                    "data": "/9j/4AAQSkZ..."
+                },
+                {
+                    "name": "document.pdf",
+                    "type": "application/pdf",
+                    "data": "JVBERi0xLj..."
+                }
+            ],
+            location: "Warehouse A",
+            priority: "High",
         },
         {
             id: "3",
@@ -29,6 +57,20 @@ export default function ReportsPage() {
             stolenItems: "Office Chair",
             witnesses: "Peter Connors",
             description: "A premium ergonomic office chair was reported missing from the manager's cabin. The chair is valued at approximately $800. It was last seen during a late evening meeting, and no unauthorized access to the office was recorded. The investigation is ongoing to determine how the item was removed.",
+            files: [
+                {
+                    "name": "photo1.jpg",
+                    "type": "image/jpeg",
+                    "data": "/9j/4AAQSkZ..."
+                },
+                {
+                    "name": "document.pdf",
+                    "type": "application/pdf",
+                    "data": "JVBERi0xLj..."
+                }
+            ],
+            location: "Warehouse A",
+            priority: "High",
         },
         {
             id: "4",
@@ -37,6 +79,20 @@ export default function ReportsPage() {
             stolenItems: "External Hard Drive",
             witnesses: "Emily Vargas",
             description: "A 2TB external hard drive containing sensitive project files was taken from the IT department. The hard drive was on a desk near the window, which was found slightly ajar. This raises concerns about external intrusion or an internal breach. Immediate measures are being taken to secure digital assets.",
+            files: [
+                {
+                    "name": "photo1.jpg",
+                    "type": "image/jpeg",
+                    "data": "/9j/4AAQSkZ..."
+                },
+                {
+                    "name": "document.pdf",
+                    "type": "application/pdf",
+                    "data": "JVBERi0xLj..."
+                }
+            ],
+            location: "Warehouse A",
+            priority: "High",
         },
         {
             id: "5",
@@ -45,6 +101,20 @@ export default function ReportsPage() {
             stolenItems: "Company Tablet",
             witnesses: "Lisa Hall",
             description: "A company-issued tablet, used for inventory management, went missing from the warehouse. The device was last seen on a charging station near the entry point. The theft was discovered during a routine inventory check. Access logs for the warehouse are being analyzed to identify any irregularities.",
+            files: [
+                {
+                    "name": "photo1.jpg",
+                    "type": "image/jpeg",
+                    "data": "/9j/4AAQSkZ..."
+                },
+                {
+                    "name": "document.pdf",
+                    "type": "application/pdf",
+                    "data": "JVBERi0xLj..."
+                }
+            ],
+            location: "Warehouse A",
+            priority: "High",
         },
         {
             id: "6",
@@ -53,6 +123,20 @@ export default function ReportsPage() {
             stolenItems: "Projector",
             witnesses: "James Lee",
             description: "A high-end projector was stolen from the conference room on the ground floor. The room was left unlocked after a meeting concluded earlier in the afternoon. Witnesses reported seeing an unfamiliar individual carrying a large bag near the area around the time of the theft.",
+            files: [
+                {
+                    "name": "photo1.jpg",
+                    "type": "image/jpeg",
+                    "data": "/9j/4AAQSkZ..."
+                },
+                {
+                    "name": "document.pdf",
+                    "type": "application/pdf",
+                    "data": "JVBERi0xLj..."
+                }
+            ],
+            location: "Warehouse A",
+            priority: "High",
         },
         {
             id: 7,
@@ -61,6 +145,20 @@ export default function ReportsPage() {
             stolenItems: "Dell XPS 15 Laptop, iPhone 13 Pro",
             witnesses: "Jane Doe, Security Officer Michael Clark",
             description: "The items were reported missing from an unlocked desk drawer in the IT department. Security footage shows an unidentified individual entering the room during lunch hours.",
+            files: [
+                {
+                    "name": "photo1.jpg",
+                    "type": "image/jpeg",
+                    "data": "/9j/4AAQSkZ..."
+                },
+                {
+                    "name": "document.pdf",
+                    "type": "application/pdf",
+                    "data": "JVBERi0xLj..."
+                }
+            ],
+            location: "Warehouse A",
+            priority: "High",
         },
         {
             id: 8,
@@ -69,6 +167,20 @@ export default function ReportsPage() {
             stolenItems: "Leather Wallet containing credit cards and ID",
             witnesses: "None",
             description: "The wallet was taken from a locked locker in the employee break room. There are no security cameras in the area, and no witnesses reported unusual activity.",
+            files: [
+                {
+                    "name": "photo1.jpg",
+                    "type": "image/jpeg",
+                    "data": "/9j/4AAQSkZ..."
+                },
+                {
+                    "name": "document.pdf",
+                    "type": "application/pdf",
+                    "data": "JVBERi0xLj..."
+                }
+            ],
+            location: "Warehouse A",
+            priority: "High",
         },
         {
             id: 9,
@@ -77,6 +189,20 @@ export default function ReportsPage() {
             stolenItems: "Canon EOS R5 Camera, 24-70mm Lens",
             witnesses: "Sam Green, Event Photographer",
             description: "The camera was stolen during a company event held in the auditorium. Witnesses recall seeing a suspicious person loitering near the equipment table before the theft.",
+            files: [
+                {
+                    "name": "photo1.jpg",
+                    "type": "image/jpeg",
+                    "data": "/9j/4AAQSkZ..."
+                },
+                {
+                    "name": "document.pdf",
+                    "type": "application/pdf",
+                    "data": "JVBERi0xLj..."
+                }
+            ],
+            location: "Warehouse A",
+            priority: "High",
         },
         {
             id: 10,
@@ -85,6 +211,20 @@ export default function ReportsPage() {
             stolenItems: "Company Credit Card, USB Flash Drive",
             witnesses: "Nina Brown, Alex White",
             description: "The items were taken from a locked briefcase left unattended in the meeting room. Witnesses saw someone matching the suspect's description leaving the area hastily.",
+            files: [
+                {
+                    "name": "photo1.jpg",
+                    "type": "image/jpeg",
+                    "data": "/9j/4AAQSkZ..."
+                },
+                {
+                    "name": "document.pdf",
+                    "type": "application/pdf",
+                    "data": "JVBERi0xLj..."
+                }
+            ],
+            location: "Warehouse A",
+            priority: "High",
         },
         {
             id: 11,
@@ -93,6 +233,20 @@ export default function ReportsPage() {
             stolenItems: "Gaming Laptop, External Hard Drive",
             witnesses: "Security Camera Footage Only",
             description: "The stolen laptop and hard drive were part of the gaming event setup. Security footage revealed a person tampering with the setup area shortly after the event ended.",
+            files: [
+                {
+                    "name": "photo1.jpg",
+                    "type": "image/jpeg",
+                    "data": "/9j/4AAQSkZ..."
+                },
+                {
+                    "name": "document.pdf",
+                    "type": "application/pdf",
+                    "data": "JVBERi0xLj..."
+                }
+            ],
+            location: "Warehouse A",
+            priority: "High",
         },
         {
             id: 12,
@@ -101,10 +255,22 @@ export default function ReportsPage() {
             stolenItems: "Set of Office Keys",
             witnesses: "CCTV Footage Captured Suspect",
             description: "The office keys were removed from the reception desk. The suspect was seen on CCTV accessing restricted areas shortly after obtaining the keys.",
+            files: [
+                {
+                    "name": "photo1.jpg",
+                    "type": "image/jpeg",
+                    "data": "/9j/4AAQSkZ..."
+                },
+                {
+                    "name": "document.pdf",
+                    "type": "application/pdf",
+                    "data": "JVBERi0xLj..."
+                }
+            ],
+            location: "Warehouse A",
+            priority: "High",
         },
     ]);
-
-
 
     return (
         <div className="reports">
