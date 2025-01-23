@@ -4,8 +4,6 @@ import Report from "../components/Report";
 import { useEffect } from "react";
 
 export default function ReportsPage() {
-    // const [reports, setReports] = useState([]); // State to store all submitted reports
-
     const [reports, setReports] = useState([]);
 
     useEffect(() => {

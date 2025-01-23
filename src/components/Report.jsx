@@ -6,7 +6,7 @@ export default function Report({ report }) {
             <p>Manager: {report.manager}</p>
             <p>Date/Time: {report.dateTime}</p>
             <p>Stolen Items: {report.stolenItems}</p>
-            <p>Witnesses: {report.witnesses}</p>
+            <p>Witnesses: {report.peoplePresent}</p>
             <p>Description: {report.description}</p>
         </div>
     );
