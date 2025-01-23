@@ -12,10 +12,10 @@ export default function TheftReportForm() {
     const [formData, setFormData] = useState({
         manager: "",
         dateTime: "",
-        items: "",
-        stolenItems: "",
-        witnesses: "",
-        peoplePresent: "",
+        stolenItemDetails: "",
+        stolenItemStatus: "",
+        witnessStatus: "",
+        witnessDetails: "",
         location: "",
         priority: "",
         description: "",
@@ -30,13 +30,13 @@ export default function TheftReportForm() {
 
     const handleWitnessChange = (event) => {
         const value = event.target.value;
-        setFormData({ ...formData, witnesses: value });
+        setFormData({ ...formData, witnessStatus: value });
         setShowPeoplePresent(value === 'Yes' || value === "Can't tell");
     };
 
     const handleStolenItems = (event) => {
         const value = event.target.value;
-        setFormData({ ...formData, stolenItems: value });
+        setFormData({ ...formData, stolenItemStatus: value });
         setShowStolenItems(value === "Yes" || value === "Can't tell")
     };
 
@@ -179,10 +179,10 @@ export default function TheftReportForm() {
                 <input
                     id="stolen-yes"
                     type="radio"
-                    name="stolenItems"
+                    name="stolenItemStatus"
                     value="Yes"
                     onChange={handleStolenItems}
-                    checked={formData.stolenItems === "Yes"}
+                    checked={formData.stolenItemStatus === "Yes"}
                     required
                 />
                 <label htmlFor="stolen-yes">Yes</label>
@@ -190,49 +190,47 @@ export default function TheftReportForm() {
                 <input
                     id="stolen-no"
                     type="radio"
-                    name="stolenItems"
+                    name="stolenItemStatus"
                     value="No"
                     onChange={handleStolenItems}
-                    checked={formData.stolenItems === "No"}
+                    checked={formData.stolenItemStatus === "No"}
                 />
                 <label htmlFor="stolen-no">No</label>
 
                 <input
                     id="stolen-cant-tell"
                     type="radio"
-                    name="stolenItems"
+                    name="stolenItemStatus"
                     value="Can't tell"
                     onChange={handleStolenItems}
-                    checked={formData.stolenItems === "Can't tell"}
+                    checked={formData.stolenItemStatus === "Can't tell"}
                 />
                 <label htmlFor="stolen-cant-tell">Cannot tell</label>
             </div>
 
-            {
-                showStolenItems && (
-                    <div className='stolen-items-container'>
-                        <label htmlFor="items">Stolen Items:</label>
-                        <textarea
-                            id="items"
-                            placeholder="What items were stolen? Description and Quantity"
-                            name="items"
-                            value={formData.items}
-                            onChange={handleChange}
-                            required
-                        ></textarea>
-                    </div>
-                )
-            }
+            {showStolenItems && (
+                <div className='stolen-items-container'>
+                    <label htmlFor="stolenItemDetails">Stolen Items:</label>
+                    <textarea
+                        id="stolenItemDetails"
+                        placeholder="What items were stolen? Description and Quantity"
+                        name="stolenItemDetails"
+                        value={formData.stolenItemDetails}
+                        onChange={handleChange}
+                        required
+                    ></textarea>
+                </div>
+            )}
 
             <label>Were there any people present/any possible witnesses?</label>
             <div>
                 <input
                     id="witness-yes"
                     type="radio"
-                    name="witnesses"
+                    name="witnessStatus"
                     value="Yes"
                     onChange={handleWitnessChange}
-                    checked={formData.witnesses === "Yes"}
+                    checked={formData.witnessStatus === "Yes"}
                     required
                 />
                 <label htmlFor="witness-yes">Yes</label>
@@ -240,20 +238,20 @@ export default function TheftReportForm() {
                 <input
                     id="witness-no"
                     type="radio"
-                    name="witnesses"
+                    name="witnessStatus"
                     value="No"
                     onChange={handleWitnessChange}
-                    checked={formData.witnesses === "No"}
+                    checked={formData.witnessStatus === "No"}
                 />
                 <label htmlFor="witness-no">No</label>
 
                 <input
                     id="witness-cant-tell"
                     type="radio"
-                    name="witnesses"
+                    name="witnessStatus"
                     value="Can't tell"
                     onChange={handleWitnessChange}
-                    checked={formData.witnesses === "Can't tell"}
+                    checked={formData.witnessStatus === "Can't tell"}
                 />
                 <label htmlFor="witness-cant-tell">Cannot tell</label>
 
@@ -264,9 +262,9 @@ export default function TheftReportForm() {
                     <div className='witnesses-container'>
                         <label htmlFor="peoplePresent">People Present:</label>
                         <textarea
-                            id="peoplePresent"
-                            name="peoplePresent"
-                            value={formData.peoplePresent}
+                            id="witnessStatus"
+                            name="witnessStatus"
+                            value={formData.witnessDetails}
                             onChange={handleChange}
                             placeholder="Name and contact info if available"
                         ></textarea>
