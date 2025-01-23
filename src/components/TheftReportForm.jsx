@@ -16,6 +16,8 @@ export default function TheftReportForm() {
         stolenItems: "",
         witnesses: "",
         peoplePresent: "",
+        location: "",
+        priority: "",
         description: "",
         files: []
     });
@@ -61,28 +63,45 @@ export default function TheftReportForm() {
             stolenItems: "",
             witnesses: "",
             peoplePresent: "",
+            location: "",
+            priority: "",
             description: "",
             files: []
         });
+
+        setShowPeoplePresent(false);
+        setShowStolenItems(false);
+
         if (fileInputRef.current) {
             fileInputRef.current.value = null;
         }
     }
 
-    const submitReport = async () => {
+    const onSubmit = async (event) => {
+        event.preventDefault();
 
         const apiUrl = "https://sotr0fimkl.execute-api.us-east-1.amazonaws.com/submit-report";
 
-        const report = {
-            manager: formData.manager,
-            dateTime: formData.dateTime,
-            items: formData.items,
-            stolenItems: formData.stolenItems,
-            witnesses: formData.witnesses,
-            peoplePresent: formData.peoplePresent,
-            description: formData.description,
-            files: formData.files
-        }
+        // Prepare form data
+        const { files, ...restFormData } = formData;
+
+        // Convert files to base64
+        const filesBase64 = await Promise.all(
+            files.map((file) =>
+                new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = () => resolve({ name: file.name, type: file.type, data: reader.result.split(',')[1] });
+                    reader.onerror = (error) => reject(error);
+                    reader.readAsDataURL(file);
+                })
+            )
+        );
+
+        // Combine form data and encoded files
+        const dataToSend = {
+            ...restFormData,
+            files: filesBase64,
+        };
 
         try {
             const response = await fetch(apiUrl, {
@@ -90,40 +109,38 @@ export default function TheftReportForm() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(report),
+                body: JSON.stringify(dataToSend),
             });
 
-            if (response.ok) {
-                console.log(`Report ${report.id} submitted successfully.`);
-            } else {
-                console.error(`Error submitting report ${report.id}:`, response.statusText);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            setNotification({ message: "Report submitted successfully!", type: "success" });
+            console.log("Submission response:", result);
+
+            // Reset the form
+            setFormData({
+                manager: "",
+                dateTime: "",
+                items: "",
+                stolenItems: "",
+                witnesses: "",
+                peoplePresent: "",
+                location: "",
+                priority: "",
+                description: "",
+                files: []
+            });
+            if (fileInputRef.current) {
+                fileInputRef.current.value = null;
             }
         } catch (error) {
-            console.error()
-        }
-    }
-
-    const onSubmit = (event) => {
-        event.preventDefault();
-
-        submitReport();
-
-        setNotification({ message: "Form was submitted! Good job", type: "success" });
-        hideNotificationAfterDelay();
-
-        console.log("Form was submitted! Good job", formData);
-        setFormData({
-            manager: "",
-            dateTime: "",
-            items: "",
-            stolenItems: "",
-            witnesses: "",
-            peoplePresent: "",
-            description: "",
-            files: []
-        });
-        if (fileInputRef.current) {
-            fileInputRef.current.value = null;
+            console.error("Error submitting form:", error);
+            setNotification({ message: "Error submitting report. Please try again.", type: "error" });
+        } finally {
+            hideNotificationAfterDelay();
         }
     };
 
@@ -256,6 +273,33 @@ export default function TheftReportForm() {
                     </div>
                 )
             }
+
+            <label htmlFor="location">Location:</label>
+            <input
+                id="location"
+                type="text"
+                placeholder="Location"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+                required
+            />
+
+            <div>
+                <label htmlFor="priority">Priority:</label>
+                <select
+                    name="priority"
+                    id="priority"
+                    value={formData.priority}
+                    onChange={handleChange}
+                    required
+                >
+                    <option value="">Select Priority</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
 
             <label htmlFor="description">Description:</label>
             <textarea
