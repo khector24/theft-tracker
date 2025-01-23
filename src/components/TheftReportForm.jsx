@@ -1,5 +1,4 @@
 import { useState, useRef } from 'react';
-import { v4 as uuid } from 'uuid';
 import '../styles/component-styles/theft-report-form.css';
 
 export default function TheftReportForm() {
@@ -70,8 +69,44 @@ export default function TheftReportForm() {
         }
     }
 
+    const submitReport = async () => {
+
+        const apiUrl = "https://sotr0fimkl.execute-api.us-east-1.amazonaws.com/submit-report";
+
+        const report = {
+            manager: formData.manager,
+            dateTime: formData.dateTime,
+            items: formData.items,
+            stolenItems: formData.stolenItems,
+            witnesses: formData.witnesses,
+            peoplePresent: formData.peoplePresent,
+            description: formData.description,
+            files: formData.files
+        }
+
+        try {
+            const response = await fetch(apiUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(report),
+            });
+
+            if (response.ok) {
+                console.log(`Report ${report.id} submitted successfully.`);
+            } else {
+                console.error(`Error submitting report ${report.id}:`, response.statusText);
+            }
+        } catch (error) {
+            console.error()
+        }
+    }
+
     const onSubmit = (event) => {
         event.preventDefault();
+
+        submitReport();
 
         setNotification({ message: "Form was submitted! Good job", type: "success" });
         hideNotificationAfterDelay();
