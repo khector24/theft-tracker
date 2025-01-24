@@ -59,10 +59,10 @@ export default function TheftReportForm() {
         setFormData({
             manager: "",
             dateTime: "",
-            items: "",
-            stolenItems: "",
-            witnesses: "",
-            peoplePresent: "",
+            stolenItemDetails: "",
+            stolenItemStatus: "",
+            witnessStatus: "",
+            witnessDetails: "",
             location: "",
             priority: "",
             description: "",
@@ -124,10 +124,10 @@ export default function TheftReportForm() {
             setFormData({
                 manager: "",
                 dateTime: "",
-                items: "",
-                stolenItems: "",
-                witnesses: "",
-                peoplePresent: "",
+                stolenItemStatus: "",
+                stolenItemsDetails: "",
+                witnessStatus: "",
+                witnessDetails: "",
                 location: "",
                 priority: "",
                 description: "",
@@ -260,10 +260,10 @@ export default function TheftReportForm() {
             {
                 showPeoplePresent && (
                     <div className='witnesses-container'>
-                        <label htmlFor="peoplePresent">People Present:</label>
+                        <label htmlFor="witnessDetails">People Present:</label>
                         <textarea
-                            id="witnessStatus"
-                            name="witnessStatus"
+                            id="witnessDetails"
+                            name="witnessDetails"
                             value={formData.witnessDetails}
                             onChange={handleChange}
                             placeholder="Name and contact info if available"
