@@ -69,3 +69,89 @@
     border-radius: 3px;
     padding: 5px;
 }
+
+/* Add styles for the active state of the buttons */
+.form-bottom button:active {
+    transform: scale(0.95);
+    background-color: #d62828;
+    /* Slightly darker color for Submit button */
+    box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* For the Cancel button */
+.form-bottom button[type="reset"]:active {
+    background-color: #f0f0f0;
+    /* Slightly darker gray for Cancel button */
+    color: #333;
+    /* Adjust text color */
+}
+
+/* Add focus styles to improve accessibility */
+.form-bottom button:focus {
+    outline: 2px solid #007BFF;
+    /* Highlight with a blue outline */
+}
+
+.button-clicked {
+    transform: scale(0.95);
+    background-color: #d62828;
+    /* Slightly darker color */
+    box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 4px solid rgba(0, 0, 0, 0.2);
+    border-top-color: #000;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* .blink-animation {
+    animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+} */
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    animation: spin 1s linear infinite, blink 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

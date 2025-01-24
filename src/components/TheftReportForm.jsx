@@ -7,6 +7,7 @@ export default function TheftReportForm() {
         message: "",
         type: ""
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [showPeoplePresent, setShowPeoplePresent] = useState(false);
     const [showStolenItems, setShowStolenItems] = useState(false);
     const [formData, setFormData] = useState({
@@ -27,6 +28,16 @@ export default function TheftReportForm() {
             setNotification({ message: "", type: "" });
         }, 5000);
     }
+
+    const handleButtonClick = (event) => {
+        const button = event.target;
+        button.classList.add("button-clicked");
+
+        setTimeout(() => {
+            button.classList.remove("button-clicked");
+        }, 200); // Remove the class after 200ms
+    };
+
 
     const handleWitnessChange = (event) => {
         const value = event.target.value;
@@ -79,6 +90,8 @@ export default function TheftReportForm() {
 
     const onSubmit = async (event) => {
         event.preventDefault();
+        setIsSubmitting(true);
+
 
         const apiUrl = "https://sotr0fimkl.execute-api.us-east-1.amazonaws.com/submit-report";
 
@@ -124,8 +137,8 @@ export default function TheftReportForm() {
             setFormData({
                 manager: "",
                 dateTime: "",
+                stolenItemDetails: "",
                 stolenItemStatus: "",
-                stolenItemsDetails: "",
                 witnessStatus: "",
                 witnessDetails: "",
                 location: "",
@@ -133,6 +146,8 @@ export default function TheftReportForm() {
                 description: "",
                 files: []
             });
+            setShowPeoplePresent(false);
+            setShowStolenItems(false);
             if (fileInputRef.current) {
                 fileInputRef.current.value = null;
             }
@@ -140,6 +155,7 @@ export default function TheftReportForm() {
             console.error("Error submitting form:", error);
             setNotification({ message: "Error submitting report. Please try again.", type: "error" });
         } finally {
+            setIsSubmitting(false);
             hideNotificationAfterDelay();
         }
     };
@@ -323,11 +339,15 @@ export default function TheftReportForm() {
             />
 
             <div className="form-bottom">
-                <button type="reset" onClick={handleCancel} style={{ backgroundColor: 'white' }}>
+                <button type="reset" onClick={(e) => { handleCancel(); handleButtonClick(e); }} >
                     Cancel
                 </button>
-                <button type="submit" style={{ backgroundColor: '#E73137', color: 'white' }}>
-                    Submit
+                <button type="submit" disabled={isSubmitting} onClick={handleButtonClick} style={{ backgroundColor: '#E73137', color: 'white' }}>
+                    {isSubmitting ? (
+                        <span className="spinner blink-animation">Submitting...</span>
+                    ) : (
+                        "Submit"
+                    )}
                 </button>
             </div>
         </form >
