@@ -99,37 +99,6 @@
     box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.spinner {
-    width: 20px;
-    height: 20px;
-    border: 4px solid rgba(0, 0, 0, 0.2);
-    border-top-color: #000;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-/* .blink-animation {
-    animation: blink 1.5s ease-in-out infinite;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes blink {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.5;
-    }
-} */
-
 @keyframes blink {
 
     0%,
