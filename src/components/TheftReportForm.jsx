@@ -309,9 +309,9 @@ export default function TheftReportForm() {
                     required
                 >
                     <option value="">Select Priority</option>
-                    <option value="high">High</option>
-                    <option value="medium">Medium</option>
-                    <option value="low">Low</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
                 </select>
             </div>
 
