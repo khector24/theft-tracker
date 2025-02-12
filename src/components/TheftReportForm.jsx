@@ -88,77 +88,68 @@ export default function TheftReportForm() {
         }
     }
 
+    const getUploadUrl = async (file) => {
+        const response = await fetch("https://sotr0fimkl.execute-api.us-east-1.amazonaws.com/get-upload-url", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ fileName: file.name, fileType: file.type })
+        });
+
+        if (!response.ok) throw new Error("Failed to get upload URL");
+        return response.json(); // { uploadUrl, fileKey }
+    };
+
+    const uploadFileToS3 = async (file, uploadUrl) => {
+        const response = await fetch(uploadUrl, {
+            method: "PUT",
+            headers: { "Content-Type": file.type },
+            body: file
+        });
+
+        if (!response.ok) throw new Error("Failed to upload file to S3");
+    };
+
     const onSubmit = async (event) => {
         event.preventDefault();
         setIsSubmitting(true);
 
-
-        const apiUrl = "https://sotr0fimkl.execute-api.us-east-1.amazonaws.com/submit-report";
-
-        // Prepare form data
-        const { files, ...restFormData } = formData;
-
-        // Convert files to base64
-        const filesBase64 = await Promise.all(
-            files.map((file) =>
-                new Promise((resolve, reject) => {
-                    const reader = new FileReader();
-                    reader.onload = () => resolve({ name: file.name, type: file.type, data: reader.result.split(',')[1] });
-                    reader.onerror = (error) => reject(error);
-                    reader.readAsDataURL(file);
-                })
-            )
-        );
-
-        // Combine form data and encoded files
-        const dataToSend = {
-            ...restFormData,
-            files: filesBase64,
-        };
+        const BUCKET_NAME = "theft-report-files";
 
         try {
+            // Step 1: Get pre-signed URLs for each file
+            const uploadedFiles = await Promise.all(
+                formData.files.map(async (file) => {
+                    const { uploadUrl, fileKey } = await getUploadUrl(file);
+                    await uploadFileToS3(file, uploadUrl);
+                    return `https://${BUCKET_NAME}.s3.amazonaws.com/${fileKey}`;
+                })
+            );
+
+            // Step 2: Submit form data with uploaded file URLs
+            const apiUrl = "https://sotr0fimkl.execute-api.us-east-1.amazonaws.com/submit-report";
+            const { files, ...restFormData } = formData;
+
             const response = await fetch(apiUrl, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(dataToSend),
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ ...restFormData, files: uploadedFiles })
             });
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+            if (!response.ok) throw new Error("Failed to submit report");
 
-            const result = await response.json();
             setNotification({ message: "Report submitted successfully!", type: "success" });
-            console.log("Submission response:", result);
+            handleCancel(); // Reset the form
 
-            // Reset the form
-            setFormData({
-                manager: "",
-                dateTime: "",
-                stolenItemDetails: "",
-                stolenItemStatus: "",
-                witnessStatus: "",
-                witnessDetails: "",
-                location: "",
-                priority: "",
-                description: "",
-                files: []
-            });
-            setShowPeoplePresent(false);
-            setShowStolenItems(false);
-            if (fileInputRef.current) {
-                fileInputRef.current.value = null;
-            }
         } catch (error) {
             console.error("Error submitting form:", error);
             setNotification({ message: "Error submitting report. Please try again.", type: "error" });
+
         } finally {
             setIsSubmitting(false);
             hideNotificationAfterDelay();
         }
     };
+
 
     return (
         <form className="form" onSubmit={onSubmit}>
