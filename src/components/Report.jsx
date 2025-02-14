@@ -27,11 +27,11 @@ export default function Report({ report }) {
             <p>Stolen Items: {report.stolenItemDetails || "N/A"}</p>
             <p>Witnesses: {report.witnessDetails || "N/A"}</p>
             <p>Description: {showFullDescription ? report.description : getShortDescription(report.description)}
-                {report.description && report.description.split(". ").length > 4 &&
+                {report.description && report.description.split(". ").length > 4 && (
                     <button className="description-toggle-btn" onClick={handleShowFullDescription}>
                         {showFullDescription ? "Read Less" : "Read More"}
                     </button>
-                }
+                )}
             </p>
             <button onClick={handleShowContent}>{showContent ? "Hide Images/Videos" : "Show Images/Videos"}</button>
             {
