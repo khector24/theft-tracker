@@ -88,6 +88,18 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+.description-toggle-btn {
+    background-color: #ff0000;
+    color: #fff;
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 3px;
+}
+
+.description-toggle-btn:hover {
+    background-color: #c90000;
+}
+
 
 /* .report {
     border: 1px solid #ddd;
