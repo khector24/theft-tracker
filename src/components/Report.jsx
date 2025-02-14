@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import FileViewer from "./FileViewer";
 import "../styles/component-styles/report.css";
 
@@ -17,7 +19,7 @@ export default function Report({ report }) {
     const getShortDescription = (text) => {
         if (!text) return "N/A";
         const sentences = text.split(". ");
-        return sentences.length > 4 ? sentences.slice(0, 4).join(". ") + ". " : text;
+        return sentences.length > 4 ? sentences.slice(0, 4).join(". ") + "... " : text;
     }
 
     return (
@@ -29,10 +31,15 @@ export default function Report({ report }) {
             <p>Description: {showFullDescription ? report.description : getShortDescription(report.description)}
                 {report.description && report.description.split(". ").length > 4 && (
                     <button className="description-toggle-btn" onClick={handleShowFullDescription}>
-                        {showFullDescription ? "Read Less" : "Read More"}
+                        {showFullDescription ? (
+                            <><FontAwesomeIcon icon={faMinus} /></>
+                        ) : (
+                            <><FontAwesomeIcon icon={faPlus} /></>
+                        )}
                     </button>
                 )}
             </p>
+
             <button onClick={handleShowContent}>{showContent ? "Hide Images/Videos" : "Show Images/Videos"}</button>
             {
                 showContent &&
