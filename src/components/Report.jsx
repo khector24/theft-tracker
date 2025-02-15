@@ -22,13 +22,40 @@ export default function Report({ report }) {
         return sentences.length > 4 ? sentences.slice(0, 4).join(". ") + "... " : text;
     }
 
+    // Ensure Details exists before splitting
+    const witnessesArr = report.witnessDetails ? report.witnessDetails.split(", ") : [];
+    const stolenItemsArr = report.stolenItemDetails ? report.stolenItemDetails.split(", ") : [];
+
     return (
         <div className="report">
             <p>Manager: {report.manager}</p>
             <p>Date/Time: {report.dateTime}</p>
-            <p>Stolen Items: {report.stolenItemDetails || "N/A"}</p>
-            <p>Witnesses: {report.witnessDetails || "N/A"}</p>
-            <p>Description: {showFullDescription ? report.description : getShortDescription(report.description)}
+            <p>Stolen Items: </p>
+            <div>
+                {
+                    stolenItemsArr.length > 0 ? (
+                        <ul className="list">
+                            {stolenItemsArr.map((stolenItem, index) => (
+                                <li key={index}>{stolenItem}</li>
+                            ))}
+                        </ul>
+                    ) : ("N/A")
+                }
+            </div>
+            <p>Location: {report.location}</p>
+            <p>Witnesses:</p>
+            <div className="">
+                {witnessesArr.length > 0 ? (
+                    <ul className="list">
+                        {witnessesArr.map((witness, index) => (
+                            <li key={index}>{witness}</li>
+                        ))}
+                    </ul>) : ("N/A")
+                }
+            </div>
+            <p>Description: </p>
+            <div className="description">
+                {showFullDescription ? report.description : getShortDescription(report.description)}
                 {report.description && report.description.split(". ").length > 4 && (
                     <button className="description-toggle-btn" onClick={handleShowFullDescription}>
                         {showFullDescription ? (
@@ -38,7 +65,7 @@ export default function Report({ report }) {
                         )}
                     </button>
                 )}
-            </p>
+            </div>
 
             <button onClick={handleShowContent}>{showContent ? "Hide Images/Videos" : "Show Images/Videos"}</button>
             {

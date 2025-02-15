@@ -220,7 +220,7 @@ export default function TheftReportForm() {
                     <label htmlFor="stolenItemDetails">Stolen Items:</label>
                     <textarea
                         id="stolenItemDetails"
-                        placeholder="What items were stolen? Description and Quantity"
+                        placeholder="What items were stolen? Description and Quantity. Ex: 3 Yeti mugs, 1 screw driver"
                         name="stolenItemDetails"
                         value={formData.stolenItemDetails}
                         onChange={handleChange}
@@ -273,7 +273,7 @@ export default function TheftReportForm() {
                             name="witnessDetails"
                             value={formData.witnessDetails}
                             onChange={handleChange}
-                            placeholder="Name and contact info if available"
+                            placeholder="Name and contact info if available. Ex: Marc Johnson: 901-652-1325, Emmit Smith: 845-621-1234"
                         ></textarea>
                     </div>
                 )

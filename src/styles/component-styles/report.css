@@ -88,6 +88,12 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+.description {
+    margin: 0 10px;
+    color: #333;
+    padding-left: 15px;
+}
+
 .description-toggle-btn {
     background-color: #ff0000;
     color: #fff;
@@ -98,6 +104,13 @@
 
 .description-toggle-btn:hover {
     background-color: #c90000;
+}
+
+.report .list {
+    margin: 0 10px;
+    padding-left: 15px;
+    font-size: 14px;
+    color: #333;
 }
 
 
