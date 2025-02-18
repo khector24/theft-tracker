@@ -20,13 +20,22 @@
 .report p {
     margin: 0;
     color: #333;
-    /* font-size: 14px;
-    line-height: 1.6; */
 }
 
 .report .list-container {
+    margin: 0 10px;
+    padding-left: 15px;
     font-size: 16px;
     line-height: 1.3;
+}
+
+.report button {
+    background-color: #E73137;
+    color: #fff;
+    max-width: 10rem;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid black;
 }
 
 .report-files {
@@ -37,9 +46,7 @@
 }
 
 .description {
-    /* margin: 0 10px; */
-    color: #333;
-    padding-left: 15px;
+    margin: 0 10px;
 }
 
 .description-toggle-btn {
@@ -53,39 +60,3 @@
 .description-toggle-btn:hover {
     background-color: #c90000;
 }
-
-.report .list {
-    margin: 0 10px;
-    padding-left: 15px;
-    font-size: 14px;
-    color: #333;
-}
-
-
-/* .report {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.report:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-}
-
-.report p {
-    margin: 0;
-    color: #333;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.report p strong {
-    font-weight: bold;
-} */
