@@ -31,10 +31,10 @@ export default function Report({ report }) {
             <p>Manager: {report.manager}</p>
             <p>Date/Time: {report.dateTime}</p>
             <p>Stolen Items: </p>
-            <div>
+            <div className="list-container">
                 {
                     stolenItemsArr.length > 0 ? (
-                        <ul className="list">
+                        <ul className="items-list">
                             {stolenItemsArr.map((stolenItem, index) => (
                                 <li key={index}>{stolenItem}</li>
                             ))}
@@ -44,9 +44,9 @@ export default function Report({ report }) {
             </div>
             <p>Location: {report.location}</p>
             <p>Witnesses:</p>
-            <div className="">
+            <div className="list-container">
                 {witnessesArr.length > 0 ? (
-                    <ul className="list">
+                    <ul className="witnesses-list">
                         {witnessesArr.map((witness, index) => (
                             <li key={index}>{witness}</li>
                         ))}

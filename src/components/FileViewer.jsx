@@ -1,5 +1,4 @@
-import "../styles/component-styles/report.css";
-
+import "../styles/component-styles/file-viewer.css";
 
 export default function FileViewer({ fileUrl }) {
     if (!fileUrl) {
