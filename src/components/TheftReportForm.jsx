@@ -138,7 +138,25 @@ export default function TheftReportForm() {
             if (!response.ok) throw new Error("Failed to submit report");
 
             setNotification({ message: "Report submitted successfully!", type: "success" });
-            handleCancel(); // Reset the form
+            setFormData({
+                manager: "",
+                dateTime: "",
+                stolenItemDetails: "",
+                stolenItemStatus: "",
+                witnessStatus: "",
+                witnessDetails: "",
+                location: "",
+                priority: "",
+                description: "",
+                files: []
+            });
+
+            setShowPeoplePresent(false);
+            setShowStolenItems(false);
+
+            if (fileInputRef.current) {
+                fileInputRef.current.value = null;
+            }
 
         } catch (error) {
             console.error("Error submitting form:", error);
