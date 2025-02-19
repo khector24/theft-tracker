@@ -1,8 +1,8 @@
 /* file-viewer.css - Styles specific to the FileViewer component */
 .file-item {
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
 }
 
 .file-image {

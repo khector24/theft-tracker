@@ -38,11 +38,20 @@
     border: 1px solid black;
 }
 
+/* Push hr to the bottom */
+.report hr {
+    margin-top: auto;
+    width: 100%;
+}
+
 .report-files {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 15px;
+    justify-content: space-between;
+    /* Ensures items touch edges when necessary */
+    width: 100%;
 }
 
 .description {

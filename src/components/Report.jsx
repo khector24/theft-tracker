@@ -78,6 +78,8 @@ export default function Report({ report }) {
                     )}
                 </div>
             }
+
+            <hr />
         </div>
     );
 }
